@@ -12,6 +12,7 @@
             return `${this.name} ${this.realName}`
         }
     }
+    
     class Xmen extends Avenger {
         
         constructor(
@@ -20,7 +21,7 @@
             public isMutant: boolean
         ){
             super(name, realName)
-            console.log('COntructor Xmen llamado')
+            console.log('Constructor Xmen llamado')
         }
 
         getFullnameFromXMen(){
@@ -30,10 +31,8 @@
 
     const wolverine = new Xmen('Wolverine','Logan', true)
     wolverine.getFullnameFromXMen();  // Wolverine Logan
-
-    const newAvenger = new Avenger('Hola','Mundo');
     
-    // protected significa que solo se puede acceder desde
-    // la clase padre o clases que se extiendan de ella.
+    // PROTECTED significa que solo se puede acceder desde
+    // la clase contenedora clases que se extiendan de ella.
 
 })();
