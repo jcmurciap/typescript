@@ -7,7 +7,7 @@
         poder: number;
     };
     
-    const avenger: Avenger = {
+    const avenger:Avenger = {
         nick: 'actor 1',
         ironman: 'actor 2',
         vision: 'actor 3',
@@ -15,8 +15,12 @@
         poder: 15000.12
     };
     
-    const printAvenger = ({ironman, ...resto}:Avenger) => {
-        console.log(ironman, resto);
-    }
+    const printAvenger = ({ironman, ...resto}: Avenger) => {
+        console.log(ironman);
+    };
     printAvenger(avenger);
+    
+    const avengersArr:string[] = ['Cap America', 'Ironman','Hulk'];
+    const [capitan, ironman, hulk] = avengersArr;
+    console.log(capitan);
 })()
