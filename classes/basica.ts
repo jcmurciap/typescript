@@ -1,10 +1,15 @@
 (() => {
     
     class Avenger {
+        
+        // Se coloca fuera del constructor porque
+        // NO se va a modificar
         static avgAge: number = 35;
         
         constructor (
+            // Accessing only in this class. 
             private name: string,
+            
             public team: string,
             public realName?: string,
         ) {};
