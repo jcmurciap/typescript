@@ -23,12 +23,12 @@
     const printName = (character: Mutante) => {
         console.log(character.name)
     } 
-    printName(wolverine);
-    printName(magneto);
+    // printName(wolverine);
+    // printName(magneto);
     
     // console.log(wolverine.salvarMundo());
     // console.log(magneto.conquistarMundo());
-    
+
 })()
 
 
