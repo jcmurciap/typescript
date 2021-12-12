@@ -22,14 +22,17 @@
         }
     };
     
-    const atman:Avenger = new Avenger('Camilo', 'runner', 'juank');
-    console.log(atman);
+    //const atman:Avenger = new Avenger('Camilo', 'runner', 'juank');
+    //console.log(atman);
 
     // acceder a la propiedad estatica
     // console.log(Avenger.avgAge); // --> 35
 
     // console.log(Avenger.avgAge) // 55
-    console.log('atman bio():',atman.bio())
-    //Remember that if you set a private classe, typescript
-    // allow you continue code, dont get error!
+    // console.log('atman bio():',atman.bio())
+    
+    /* 
+    * Remember that if you set a private classe, typescript
+    * allow you continue code, dont get error!
+    */
 })();
