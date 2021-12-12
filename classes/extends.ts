@@ -14,7 +14,6 @@
     }
     
     class Xmen extends Avenger {
-        
         constructor(
             name: string,
             realName: string,
@@ -27,10 +26,27 @@
         getFullnameFromXMen(){
             console.log(super.getFullName())
         }
+        
+        get fullName() {
+            return `${this.name} - ${this.realName}`
+        }
+
+        set fullName(name: string){
+            
+            if (name.length < 3){
+                throw new Error('name must be longer that 3 words')
+            }
+            this.name = name;
+        }
     }
 
     const wolverine = new Xmen('Wolverine','Logan', true)
-    wolverine.getFullnameFromXMen();  // Wolverine Logan
+    
+    
+    wolverine.fullName = "Camilo" // 'setter'
+    console.log(wolverine.fullName); // Camilo - Logan --> 'getter'
+
+    // wolverine.getFullnameFromXMen();  // Wolverine Logan
     
     // PROTECTED significa que solo se puede acceder desde
     // la clase contenedora clases que se extiendan de ella.
