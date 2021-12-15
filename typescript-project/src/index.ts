@@ -5,4 +5,4 @@ const Charmander = new Pokemon('Charmander');
 // can't do it
 // (Pokemon.prototype as any).customName = 'Camilo';
 
-console.log(Charmander);
+Charmander.savePokemonToDB(5);

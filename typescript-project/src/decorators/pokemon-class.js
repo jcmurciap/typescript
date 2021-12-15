@@ -23,16 +23,35 @@ define(["require", "exports"], function (require, exports) {
         Object.seal(constructor);
         Object.seal(constructor.prototype);
     };
+    // factory decorator
+    const CheckValidPokemonId = () => (target, propertyKey, descriptor) => {
+        const originalMethod = descriptor.value;
+        descriptor.value = (id) => {
+            if (id < 1 || id > 800) {
+                return console.error('Pokemon Id does not exist');
+            }
+            else {
+                return originalMethod(id);
+            }
+            ;
+        };
+    };
     // decorators are executed sequentially
     let Pokemon = class Pokemon {
         constructor(name) {
             this.name = name;
             this.publicApi = "https://pokeapi.co";
         }
+        savePokemonToDB(id) {
+            console.log(`Pokemon saved on database ${id}`);
+        }
     };
+    __decorate([
+        CheckValidPokemonId()
+    ], Pokemon.prototype, "savePokemonToDB", null);
     Pokemon = __decorate([
         blockPrototype,
-        printToConsoleConditional(true)
+        printToConsoleConditional(false)
     ], Pokemon);
     exports.Pokemon = Pokemon;
 });
