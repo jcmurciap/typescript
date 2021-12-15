@@ -1,4 +1,6 @@
 import { printObject, genericFunction, genericFunctionArrow } from "./generics/generics";
+import { Hero } from './interfaces/hero';
+import { Villain } from "./interfaces/villain";
 
 // printObject(123);
 // printObject(new Date());
@@ -9,12 +11,19 @@ import { printObject, genericFunction, genericFunctionArrow } from "./generics/g
 
 // como le podemos decir a typescript que me muestre los metodos que
 // correspondan con el tipo de dato que le ingresamos?
-console.log(genericFunction(3.145678).toFixed(2));      
-console.log(genericFunction('Hola mundo').toUpperCase());      
-console.log(genericFunction(new Date()).getHours());      
+// console.log(genericFunction(3.145678).toFixed(2));      
+// console.log(genericFunction('Hola mundo').toUpperCase());      
+// console.log(genericFunction(new Date()).getHours());      
 
-console.log(genericFunctionArrow(15.645678).toFixed(2));      
-console.log(genericFunctionArrow('JUAN CAMILO').toLowerCase());      
-console.log(genericFunctionArrow(new Date(1)).getHours());      
+// console.log(genericFunctionArrow(15.645678).toFixed(2));      
+// console.log(genericFunctionArrow('JUAN CAMILO').toLowerCase());      
+// console.log(genericFunctionArrow(new Date(1)).getHours());      
 
+const deadpool = {
+    name: 'Deadpool',
+    realName: 'Wade Winston Wilson',
+    dangerLevel: 130
+}
+
+console.log(genericFunctionArrow<Villain>(deadpool).dangerLevel);
 
