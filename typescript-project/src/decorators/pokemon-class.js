@@ -19,6 +19,11 @@ define(["require", "exports"], function (require, exports) {
             return () => { };
         }
     };
+    const blockPrototype = function (constructor) {
+        Object.seal(constructor);
+        Object.seal(constructor.prototype);
+    };
+    // decorators are executed sequentially
     let Pokemon = class Pokemon {
         constructor(name) {
             this.name = name;
@@ -26,7 +31,8 @@ define(["require", "exports"], function (require, exports) {
         }
     };
     Pokemon = __decorate([
-        printToConsoleConditional(false)
+        blockPrototype,
+        printToConsoleConditional(true)
     ], Pokemon);
     exports.Pokemon = Pokemon;
 });

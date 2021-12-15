@@ -1,8 +1,8 @@
-import { getPokemon } from './generics/get-pokemon';
+import { Pokemon } from "./decorators/pokemon-class";
 
-getPokemon(44)
-    .then(pokemon => console.log(pokemon.sprites.front_default)) // you can access to a numerical methods -> ex:resp.toFixed()
-    .catch(error => console.error(error))
-    .finally(() => console.log('end getPokemon request'));
+const Charmander = new Pokemon('Charmander');
 
+// can't do it
+// (Pokemon.prototype as any).customName = 'Camilo';
 
+console.log(Charmander);
