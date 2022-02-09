@@ -36,16 +36,36 @@ define(["require", "exports"], function (require, exports) {
             ;
         };
     };
+    const readOnly = (isWritable = true) => (target, propertyKey) => {
+        const descriptor = {
+            get() {
+                return 'Camilo';
+            },
+            set(val) {
+                Object.defineProperty(this, propertyKey, {
+                    value: val,
+                    writable: !isWritable,
+                    enumerable: false,
+                });
+            }
+        };
+        return descriptor;
+    };
     // decorators are executed sequentially
     let Pokemon = class Pokemon {
         constructor(name) {
             this.name = name;
+            // para que pueda funcionar, es necesario cambiar las funcines flecha
+            // por las funciones convencionales.
             this.publicApi = "https://pokeapi.co";
         }
         savePokemonToDB(id) {
             console.log(`Pokemon saved on database ${id}`);
         }
     };
+    __decorate([
+        readOnly(false)
+    ], Pokemon.prototype, "publicApi", void 0);
     __decorate([
         CheckValidPokemonId()
     ], Pokemon.prototype, "savePokemonToDB", null);

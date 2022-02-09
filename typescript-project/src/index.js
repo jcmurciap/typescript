@@ -4,5 +4,6 @@ define(["require", "exports", "./decorators/pokemon-class"], function (require, 
     const Charmander = new pokemon_class_1.Pokemon('Charmander');
     // can't do it
     // (Pokemon.prototype as any).customName = 'Camilo';
-    Charmander.savePokemonToDB(5);
+    // Charmander.savePokemonToDB(5);
+    console.log(Charmander);
 });
